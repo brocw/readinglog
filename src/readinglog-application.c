@@ -87,12 +87,12 @@ readinglog_application_about_action (GSimpleAction *action,
 	window = gtk_application_get_active_window (GTK_APPLICATION (self));
 
 	gtk_show_about_dialog (window,
-	                       "program-name", "readinglog",
+	                       "program-name", "Reading Log",
 	                       "logo-icon-name", "com.sledgehogsoftware.readinglog",
 	                       "authors", authors,
 	                       "translator-credits", _("translator-credits"),
 	                       "version", "0.1.0",
-	                       "copyright", "© 2025 Broc",
+	                       "copyright", "© 2025 Broc Weselmann",
 	                       NULL);
 }
 

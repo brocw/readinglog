@@ -3,20 +3,39 @@
     <property name="layout-manager">
       <object class="GtkBoxLayout">
         <property name="orientation">vertical</property>
-        <property name="spacing">12</property>
+        <property name="spacing">48</property>
       </object>
     </property>
+    <property name="margin-top">50</property>
+    <property name="margin-bottom">50</property>
+    <property name="margin-start">50</property>
+    <property name="margin-end">50</property>
     <child>
       <object class="GtkLabel" id="label">
         <property name="label" translatable="yes">Reading Log</property>
         <style>
-          <class name="title-1"/>
+          <class name="large-title"/>
         </style>
       </object>
     </child>
     <child>
-      <object class="GtkButton" id="button">
-        <property name="label" translatable="yes">Log new Session</property>
+      <object class="GtkButton" id="new_button">
+        <property name="label" translatable="yes">New</property>
+        <property name="halign">center</property>
+        <property name="tooltip-text">Create a new Database</property>
+        <style>
+          <class name="heading"/>
+        </style>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton" id="open_button">
+        <property name="label" translatable="yes">Open</property>
+        <property name="halign">center</property>
+        <property name="tooltip-text">Open an existing Database</property>
+        <style>
+          <class name="heading"/>
+        </style>
       </object>
     </child>
   </template>

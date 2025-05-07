@@ -2,7 +2,7 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <template class="ReadinglogWindow" parent="GtkApplicationWindow">
-    <property name="title" translatable="yes">Readinglog</property>
+    <property name="title" translatable="yes">Reading Log</property>
     <property name="default-width">800</property>
     <property name="default-height">600</property>
     <property name="titlebar">
@@ -32,7 +32,7 @@
         <attribute name="action">win.show-help-overlay</attribute>
       </item>
       <item>
-        <attribute name="label" translatable="yes">_About Readinglog</attribute>
+        <attribute name="label" translatable="yes">_About Reading Log</attribute>
         <attribute name="action">app.about</attribute>
       </item>
     </section>
