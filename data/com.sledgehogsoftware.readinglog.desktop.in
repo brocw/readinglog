@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=readinglog
+Exec=readinglog
+Icon=com.sledgehogsoftware.readinglog
+Terminal=false
+Type=Application
+Categories=Utility;
+Keywords=GTK;
+StartupNotify=true
+DBusActivatable=true

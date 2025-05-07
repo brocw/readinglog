@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/com/sledgehogsoftware/readinglog">
+    <file preprocess="xml-stripblanks">readinglog-window.ui</file>
+    <file preprocess="xml-stripblanks">main-widget.ui</file>
+    <file preprocess="xml-stripblanks">gtk/help-overlay.ui</file>
+  </gresource>
+</gresources>

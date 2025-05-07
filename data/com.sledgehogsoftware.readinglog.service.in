@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=com.sledgehogsoftware.readinglog
+Exec=@bindir@/readinglog --gapplication-service

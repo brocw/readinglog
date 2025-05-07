@@ -1,0 +1,23 @@
+<interface>
+  <template class="MainWidget" parent="GtkWidget">
+    <property name="layout-manager">
+      <object class="GtkBoxLayout">
+        <property name="orientation">vertical</property>
+        <property name="spacing">12</property>
+      </object>
+    </property>
+    <child>
+      <object class="GtkLabel" id="label">
+        <property name="label" translatable="yes">Reading Log</property>
+        <style>
+          <class name="title-1"/>
+        </style>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton" id="button">
+        <property name="label" translatable="yes">Log new Session</property>
+      </object>
+    </child>
+  </template>
+</interface>

@@ -1,0 +1,8 @@
+# List of source files containing translatable strings.
+# Please keep this file sorted alphabetically.
+data/com.sledgehogsoftware.readinglog.desktop.in
+data/com.sledgehogsoftware.readinglog.metainfo.xml.in
+data/com.sledgehogsoftware.readinglog.gschema.xml
+src/main.c
+src/readinglog-window.c
+src/readinglog-window.ui
