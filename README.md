@@ -11,7 +11,8 @@ A C GTK4 application for logging reading progress.
 ### Compiling
 
 > meson setup build
-> ninja compile -C build
+
+> ninja -C build
 
 ### Running
 

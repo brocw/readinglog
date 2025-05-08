@@ -1,4 +1,5 @@
 #include "main-widget.h"
+#include "gio/gio.h"
 #include "glib.h"
 #include "gtk/gtk.h"
 
@@ -19,10 +20,65 @@ on_new_button_clicked(GtkButton * button, gpointer user_data)
   g_message("New Button pressed.\n");
 }
 
+static gboolean
+abort_opening_file(gpointer data)
+{
+  GCancellable * cancellable = data;
+  g_cancellable_cancel(cancellable);
+  return G_SOURCE_REMOVE;
+}
+
+static void
+set_file(GFile * file, gpointer data)
+{
+  GFileInfo * info;
+  char * name;
+
+  if (!file) {
+    return;
+  }
+
+  name = g_file_get_basename(file);
+  g_message("File opened: %s\n", name);
+  g_free(name);
+
+  info = g_file_query_info(file, "standard::content-type", 0, NULL, NULL);
+  g_message("File ending: %s\n", g_file_info_get_content_type(info));
+}
+
+static void
+file_opened(GObject * source, GAsyncResult * result, void * data)
+{
+  GFile * file;
+  GError * error = NULL;
+
+  file = gtk_file_dialog_open_finish(GTK_FILE_DIALOG(source), result, &error);
+
+  if (!file) {
+    g_error("%s\n", error->message);
+    g_error_free(error);
+    // TODO: set_sensitive FALSE, set_data NULL in gtk4-demo, maybe do here too
+  } else {
+    set_file(file, data);
+  }
+}
+
 static void
 on_open_button_clicked(GtkButton * button, gpointer user_data)
 {
-  g_message("Open Button pressed.\n");
+  GtkWindow * parent = GTK_WINDOW(gtk_widget_get_root(GTK_WIDGET(button)));
+  GtkFileDialog * dialog;
+  GCancellable * cancellable;
+
+  dialog = gtk_file_dialog_new();
+  cancellable = g_cancellable_new();
+
+  g_timeout_add_seconds_full(G_PRIORITY_DEFAULT, 20, abort_opening_file, g_object_ref(cancellable), g_object_unref);
+
+  gtk_file_dialog_open(dialog, parent, cancellable, file_opened, user_data);
+
+  g_object_unref(cancellable);
+  g_object_unref(dialog);
 }
 
 static void
