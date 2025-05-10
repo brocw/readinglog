@@ -38,6 +38,18 @@ struct _ReadinglogWindow
 G_DEFINE_FINAL_TYPE (ReadinglogWindow, readinglog_window, GTK_TYPE_APPLICATION_WINDOW)
 
 static void
+new_selected(MainWidget * main, gpointer user_data)
+{
+	g_message("New signal recieved\n");
+}
+
+static void
+open_selected(GFile * file, gpointer user_data)
+{
+	g_message("Open signal recieved\n");
+}
+
+static void
 readinglog_window_class_init (ReadinglogWindowClass *klass)
 {
 	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
@@ -52,4 +64,6 @@ static void
 readinglog_window_init (ReadinglogWindow *self)
 {
 	gtk_widget_init_template (GTK_WIDGET (self));
+	g_signal_connect(self->main, "main_new", G_CALLBACK(new_selected), NULL);
+	g_signal_connect(self->main, "main_open", G_CALLBACK(open_selected), NULL);
 }
